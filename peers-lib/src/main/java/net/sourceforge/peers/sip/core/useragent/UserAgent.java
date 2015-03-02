@@ -53,7 +53,7 @@ import net.sourceforge.peers.sip.transport.TransportManager;
 
 public class UserAgent {
 
-    public final static String CONFIG_FILE = "conf" + File.separator + "peers.xml";
+    private final static String CONFIG_FILE = "conf" + File.separator + "peers.xml";
     public final static int RTP_DEFAULT_PORT = 8000;
 
     private String peersHome;
@@ -82,6 +82,13 @@ public class UserAgent {
     private AbstractSoundManager soundManager;
     private MediaManager mediaManager;
 
+    public static String configFile( ) {
+    	
+    	String result = System.getProperty("peers.config", CONFIG_FILE);
+    	
+    	return result;
+    	
+    }
     public UserAgent(SipListener sipListener, String peersHome,
             Logger logger, AbstractSoundManager soundManager)
                     throws SocketException {
@@ -108,7 +115,7 @@ public class UserAgent {
         this.logger = logger;
         if (config == null) {
             config = new XmlConfig(this.peersHome + File.separator
-                    + CONFIG_FILE, this.logger);
+                    + configFile(), this.logger);
         }
         this.config = config;
 
