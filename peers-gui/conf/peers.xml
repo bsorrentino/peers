@@ -23,13 +23,13 @@
   <ipAddress>192.168.99.1</ipAddress>
   <!-- username (corresponding to the user part of your sip uri) -->
   <!-- Example: alice -->
-  <userPart>1006</userPart>
+  <userPart>1000</userPart>
   <!-- domain (corresponding to the domain part of your sip uri) -->
   <!-- Example: atlanta.com -->
   <domain>192.168.99.100:5060</domain>
   <!-- if password is empty, no REGISTER message is sent -->
   <!-- Example: 1234 -->
-  <password>bartolo1006</password>
+  <password>sip1000</password>
   <!-- you can specify an outbound proxy for registration and calls -->
   <!-- Example: sip:192.168.1.20;lr -->
   <outboundProxy/>
