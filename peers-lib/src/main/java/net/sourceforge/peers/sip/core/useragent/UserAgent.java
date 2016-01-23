@@ -56,8 +56,9 @@ public class UserAgent {
     private final static String CONFIG_FILE = "conf" + File.separator + "peers.xml";
     public final static int RTP_DEFAULT_PORT = 8000;
 
+    public final  Logger logger;
+
     private String peersHome;
-    private Logger logger;
     private Config config;
 
     private List<String> peers;
