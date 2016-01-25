@@ -20,6 +20,7 @@
 package net.sourceforge.peers;
 
 import java.net.InetAddress;
+import java.nio.file.Path;
 
 import net.sourceforge.peers.media.MediaMode;
 import net.sourceforge.peers.sip.syntaxencoding.SipURI;
@@ -38,6 +39,8 @@ public interface Config {
     public boolean isMediaDebug();
     public String getMediaFile();
     public int getRtpPort();
+    public Path getOutputDir();
+
     public void setLocalInetAddress(InetAddress inetAddress);
     public void setPublicInetAddress(InetAddress inetAddress);
     public void setUserPart(String userPart);
@@ -49,5 +52,6 @@ public interface Config {
     public void setMediaDebug(boolean mediaDebug);
     public void setMediaFile(String mediaFile);
     public void setRtpPort(int rtpPort);
+    public void setOutputDir( Path dir);
 
 }

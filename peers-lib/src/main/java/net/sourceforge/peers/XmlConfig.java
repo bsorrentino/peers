@@ -24,6 +24,8 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -68,6 +70,7 @@ public class XmlConfig implements Config {
     private boolean mediaDebug;
     private String mediaFile;
     private int rtpPort;
+    private Path outputDir;
     
     // corresponding DOM nodes
     
@@ -94,6 +97,8 @@ public class XmlConfig implements Config {
             logger.debug("config file " + fileName + " not found");
             return;
         }
+        this.outputDir = Paths.get(fileName).getParent();
+        
         DocumentBuilderFactory documentBuilderFactory =
             DocumentBuilderFactory.newInstance();
         DocumentBuilder documentBuilder;
@@ -357,5 +362,15 @@ public class XmlConfig implements Config {
     public void setMediaFile(String mediaFile) {
         this.mediaFile = mediaFile;
     }
+
+    @Override
+	public final Path getOutputDir() {
+		return outputDir;
+	}
+
+    @Override
+	public final void setOutputDir(Path outputDir) {
+		this.outputDir = outputDir;
+	}
 
 }
