@@ -34,6 +34,7 @@ import javax.sound.sampled.DataLine;
 import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.SourceDataLine;
 import javax.sound.sampled.TargetDataLine;
+import net.sourceforge.peers.Config;
 
 import net.sourceforge.peers.Logger;
 import net.sourceforge.peers.media.AbstractSoundManager;
@@ -67,6 +68,10 @@ public class JavaxSoundManager extends AbstractSoundManager {
         sourceDataLineMutex = new Object();
     }
 
+    public JavaxSoundManager( Logger logger, Config config) {
+        this( config.isMediaDebug(), logger, config.getOutputDir().toString());
+    }
+    
     @Override
     public void init() {
         logger.debug("openAndStartLines");
@@ -74,7 +79,7 @@ public class JavaxSoundManager extends AbstractSoundManager {
             SimpleDateFormat simpleDateFormat =
                 new SimpleDateFormat("yyyy-MM-dd_HH-mm-ss");
             String date = simpleDateFormat.format(new Date());
-            StringBuffer buf = new StringBuffer();
+            StringBuilder buf = new StringBuilder();
             buf.append(peersHome).append(File.separator);
             buf.append(MEDIA_DIR).append(File.separator);
             buf.append(date).append("_");

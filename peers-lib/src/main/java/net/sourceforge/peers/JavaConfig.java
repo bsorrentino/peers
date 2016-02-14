@@ -20,6 +20,7 @@
 package net.sourceforge.peers;
 
 import java.net.InetAddress;
+import java.nio.file.Path;
 
 import net.sourceforge.peers.media.MediaMode;
 import net.sourceforge.peers.sip.syntaxencoding.SipURI;
@@ -37,7 +38,8 @@ public class JavaConfig implements Config {
     private boolean mediaDebug;
     private String mediaFile;
     private int rtpPort;
-
+    private Path outputDir;
+    
     @Override
     public void save() {
         throw new RuntimeException("not implemented");
@@ -151,6 +153,19 @@ public class JavaConfig implements Config {
     @Override
     public void setMediaFile(String mediaFile) {
         this.mediaFile = mediaFile;
+    }
+
+    @Override
+    public Path getOutputDir() {
+        return outputDir;
+    }
+
+    @Override
+    public void setOutputDir(Path path) {
+        if( path == null ) {
+            throw new IllegalArgumentException("path is null!");
+        }
+        this.outputDir = path;
     }
 
 }
