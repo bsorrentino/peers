@@ -97,8 +97,13 @@ public class XmlConfig implements Config {
             logger.debug("config file " + fileName + " not found");
             return;
         }
+<<<<<<< HEAD
         this.outputDir = Paths.get(file.toURI()).getParent();
 
+=======
+        this.outputDir = Paths.get(fileName).getParent();
+        
+>>>>>>> origin/develop
         DocumentBuilderFactory documentBuilderFactory =
             DocumentBuilderFactory.newInstance();
         DocumentBuilder documentBuilder;

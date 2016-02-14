@@ -36,6 +36,7 @@ import javax.sound.sampled.SourceDataLine;
 import javax.sound.sampled.TargetDataLine;
 import net.sourceforge.peers.Config;
 
+import net.sourceforge.peers.Config;
 import net.sourceforge.peers.Logger;
 import net.sourceforge.peers.media.AbstractSoundManager;
 import net.sourceforge.peers.sip.Utils;
@@ -67,6 +68,11 @@ public class JavaxSoundManager extends AbstractSoundManager {
         sourceInfo = new DataLine.Info(SourceDataLine.class, audioFormat);
         sourceDataLineMutex = new Object();
     }
+    
+    public JavaxSoundManager(Logger logger, Config config) {
+    	this( config.isMediaDebug(), logger, config.getOutputDir().toString());
+    }
+
 
     public JavaxSoundManager( Logger logger, Config config) {
         this( config.isMediaDebug(), logger, config.getOutputDir().toString());

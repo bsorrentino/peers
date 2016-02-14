@@ -2,6 +2,7 @@ package net.sourceforge.peers.demo;
 
 import java.net.InetAddress;
 import java.net.UnknownHostException;
+import java.nio.file.Path;
 
 import net.sourceforge.peers.Config;
 import net.sourceforge.peers.media.MediaMode;
@@ -57,5 +58,13 @@ public class CustomConfig implements Config {
     @Override public void setMediaFile(String mediaFile) { }
     @Override public void setRtpPort(int rtpPort) { }
     @Override public void save() { }
+
+	@Override
+	public Path getOutputDir() {
+		return null;
+	}
+
+	@Override
+	public void setOutputDir(Path dir) {}
     
 }

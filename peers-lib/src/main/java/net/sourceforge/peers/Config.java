@@ -52,7 +52,7 @@ public interface Config {
     public void setMediaDebug(boolean mediaDebug);
     public void setMediaFile(String mediaFile);
     public void setRtpPort(int rtpPort);
+    public void setOutputDir( Path dir);
 
         
-    public void setOutputDir( Path path);
 }
