@@ -74,10 +74,6 @@ public class JavaxSoundManager extends AbstractSoundManager {
     }
 
 
-    public JavaxSoundManager( Logger logger, Config config) {
-        this( config.isMediaDebug(), logger, config.getOutputDir().toString());
-    }
-    
     @Override
     public void init() {
         logger.debug("openAndStartLines");
